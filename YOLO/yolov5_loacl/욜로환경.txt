@@ -1,0 +1,26 @@
+conda create -n yolov5 python=3.8
+conda activate yolov5
+conda install pytorch==1.10.0 torchvision==0.11.0 torchaudio==0.10.0 cudatoolkit=11.3 -c pytorch -c conda-forge
+이까지한후
+conda activate yolov5
+python
+>>import torch 
+>>torch.cuda.is_available()
+실행했을때 True 뜨면 cuda사용가능
+pip install tqdm
+pip install opencv-python
+pip install pyyaml
+pip install pandas
+pip install requests
+pip install IPython
+pip install psutil
+pip install matplotlib
+pip install seaborn
+pip install tensorboard
+pip install setuptools==59.5.0
+
+anaconda prompt에서 
+# 학습
+python train.py --img 640 --batch 16 --epochs 5 --data data/coco128.yaml --cfg models/yolov5s.yaml --weights weights/yolov5s.pt
+# 객체인식
+python detect.py --source ./inference/images/ --weights runs/train/exp4/weights/best.pt --conf 0.4
